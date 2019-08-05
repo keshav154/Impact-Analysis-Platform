@@ -1,0 +1,65 @@
+<?php
+if ($this->pageCount > 1): ?>
+    <div class="text-center content-group-lg pt-20">
+        <ul class="pagination">
+            <!-- Previous page link -->
+            <?php if (isset($this->previous)): ?>
+                <li><a class="pagingAnchor" href="<?php echo $this->url($this->route); ?>?page=<?php echo $this->previous; ?>"><i class="icon-arrow-small-left"></i></a></li>
+            <?php else: ?>
+                <li class="disabled">
+                    <a href="javascript:void(0);">
+                        <i class="icon-arrow-small-left"></i>
+                    </a>
+                </li>
+            <?php endif;
+            //paging logic
+            $startPage = $this->current - 5;
+            $endPage = $this->current + 4;
+            if ($this->current > $this->pageCount - 4) {
+                $diff = $this->pageCount - $this->current;
+                $startPage = $this->current - 5 - (4 - $diff);
+            }
+            if ($startPage <= 0) {
+                $endPage -= ($startPage - 1);
+                $startPage = 1;
+            }
+            if ($endPage > $this->pageCount)
+                $endPage = $this->pageCount;
+            ?>
+            <!-- Numbered page links -->
+            <?php 
+            $filter = "";
+            if(!empty($country_id)){
+                $filter.= "&country=".$country_id;
+            }
+            if(!empty($grade_id)){
+                $filter.= "&grade=".$grade_id;
+            }
+            if(!empty($subject_id)){
+                $filter.= "&sub=".$subject_id;
+            }
+            if(!empty($syllabus_id)){
+                $filter.= "&syllabus=".$syllabus_id;
+            }            
+            for ($i = $startPage; $i <= $endPage; $i++) { ?>
+                <?php if ($i != $this->current): ?>
+                    <li>
+                        <a class="pagingAnchor" href="<?php echo $this->url($this->route, array('action' => $this->action)); ?>?page=<?php echo $i.$filter; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="active">
+                        <a href="javascript:void(0);"><?php echo $i; ?></a>
+                    </li>
+                <?php endif; ?>
+            <?php } ?>
+            <!-- Next page link -->
+            <?php if (isset($this->next)): ?>
+                <li><a class="pagingAnchor" href="<?php echo $this->url($this->route); ?>?page=<?php echo $this->next.$filter; ?>"><i class="icon-arrow-small-right"></i></a></li>
+            <?php else: ?>
+                <li class="disabled"><a href="#"><i class="icon-arrow-small-right"></i></a></li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>

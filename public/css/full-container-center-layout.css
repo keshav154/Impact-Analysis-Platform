@@ -1,0 +1,26 @@
+/*very important notice
+put this css where module layout used*/
+
+body {
+    background: #ececec !important;
+}
+
+footer {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.center-layout .content-wrapper {
+    padding: 20px;
+}
+
+
+/* .course-layout{
+	    background: url(../images/bg.png) !important;
+} */
+
+@media screen and (min-width:1200px) {
+    .center-layout {
+        width: 1200px !important;
+    }
+}

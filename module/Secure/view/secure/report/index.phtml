@@ -1,0 +1,555 @@
+
+
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/tables/datatables/datatables.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/forms/styling/switchery.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/visualization/echarts/echarts.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/charts/highchart/highcharts.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/charts/highchart/modules/heatmap.js'); ?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/forms/selects/bootstrap_select.min.js'); ?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/forms/selects/select2.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/plugins/forms/styling/switch.min.js'); ?>"></script>
+
+<div class="filter-search-header" style="min-height:60px;margin-top:0px !important;">
+
+</div>
+<div class="content-wrapper no-padding">
+    <div class="pp-content ">
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading no-padding ">
+                    <ul class="nav nav-tabs nav-tabs-bottom no-margin">
+                        <li class="active"><a href="#Over_All_Report" data-toggle="tab" aria-expanded="true">Activity Information</a></li>
+                        <li ><a href="#Score_By_Module" data-toggle="tab" aria-expanded="false">Score By Module</a></li>
+                        <li class="hide"><a href="#Domain_Proficiency" data-toggle="tab" aria-expanded="true">Domain Proficiency</a></li>
+                        <li ><a href="#Modules_Attempted" data-toggle="tab" aria-expanded="true">Modules Attempted</a></li>
+
+                    </ul>
+                </div> 
+                <div class="custom-panel-content panel-body" >
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Over_All_Report">
+                            <div class="panel panel-default no-border" >
+
+                                <div class="tab-content">
+
+
+                                    <div class="table-responsive">
+                                        <div class="panel panel-flat no-border datatable-hide-search tablertl selectfix_table no-margin-bottom">    
+                                            <div class="panel-header"><h4><?php echo $this->translate("Activity Information"); ?></h4></div>
+                                            <table class="table datatable-basic table-bordered" id="acticity-listing">  
+                                                <thead>
+                                                    <tr>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Name"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Age"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Avatar"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Gender"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Language"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Module Id"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Module Name"); ?></strong></th>
+                                                        <!--<th data-sortable="false"><strong><?php //echo $this->translate("Level Id");     ?></strong></th>-->
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Level Name"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Knowledge Domain"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Cognitive Domain"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Level Type"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Level Enteractivity"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Question Id"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Question Cognitive"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Question Action Verb"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Question Type"); ?></strong></th>
+                                                        <!--<th data-sortable="false"><strong><?php // echo $this->translate("Max Score");     ?></strong></th>-->
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("User Score"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("IP Address"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Browser Version"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Device Model"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Device Kernal Version"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Device Serial No."); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Device Plateform"); ?></strong></th>
+                                                        <th data-sortable="false"><strong><?php echo $this->translate("Attempted Date"); ?></strong></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="Score_By_Module">
+                            <div class=" panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-6"> 
+                                            <h4 class="panel-title no-margin-bottom no-padding-bottom mt-10">Score By Module</h4>
+                                        </div>   
+                                    </div>
+                                </div> 
+                                <div class="tab-content">
+                                    <div class="tab-pane active " id="bar-one-year" >
+                                        <div class="chart-container ">
+                                            <?php if (!empty(json_decode($allModules))) { ?>
+                                                <div class="chart has-fixed-height" id="bar-one-yr"></div>
+                                            <?php } else { ?>
+                                                <div class="chart text-center" id=""><p><?php echo $this->translate("No data available"); ?></p></div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Score By Module End -->
+
+                        </div>
+                        <div class="tab-pane hide" id="Domain_Proficiency">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-7"> 
+                                            <h4 class="panel-title no-margin-bottom no-padding-bottom mt-10">Domain Proficiency</h4>
+                                        </div>   
+                                    </div>
+                                </div> 
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="all">
+                                        <div class="panel-body pp-subhead custom-psh">
+                                            <div class="pp-content">
+
+                                                <div class="chart-container">
+                                                    <div class="chart has-fixed-height" id="radar_basic"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Most Attempted Module -->
+                        <div class="tab-pane " id="Modules_Attempted">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-7"> 
+                                            <h4 class="panel-title no-margin-bottom no-padding-bottom mt-10">Modules Attempted</h4>
+                                        </div>   
+
+                                    </div>
+                                </div> 
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="all">
+                                        <div class="">
+                                            <div class="panel-body pp-subhead custom-psh">	
+
+                                                <div class="">
+                                                    <div class="pp-content">
+                                                        <div class="point-list">
+                                                            <ul class="list-inline">														
+                                                                <li><span class="name">Total: </span><span class="value"><?php echo $totalModuleAttempt; ?></span></li>
+                                                            </ul>
+                                                        </div>                    
+
+                                                    </div>
+                                                </div>
+                                                <div class="chart-container">
+                                                    <div class="chart has-fixed-height has-minimum-width" id="module-attempted-donut"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    /* ------------------------------------------------------------------------------
+     *
+     *  # Echarts - lines and areas
+     *
+     *  Lines and areas chart configurations
+     *
+     *  Version: 1.0
+     *  Latest update: August 1, 2015
+     *
+     * ---------------------------------------------------------------------------- */
+
+    $(function () {
+
+
+        // Set paths
+        // ------------------------------
+
+        require.config({
+            paths: {
+                echarts: basepath + '/js/plugins/visualization/echarts'
+            }
+        });
+
+
+        // Configuration
+        // ------------------------------
+
+        require(
+                [
+                    'echarts',
+                    'echarts/theme/limitless',
+                    'echarts/chart/bar',
+                    'echarts/chart/pie',
+                    'echarts/chart/line',
+                    'echarts/chart/radar'
+                ],
+                // Charts setup
+                        function (ec, limitless) {
+
+
+                            // Initialize charts
+                            // ------------------------------
+                            var bar_one_yr = ec.init(document.getElementById('bar-one-yr'), limitless);
+                            var module_attempted_donut = ec.init(document.getElementById('module-attempted-donut'), limitless);
+                            var radar_basic = ec.init(document.getElementById('radar_basic'), limitless);
+
+                            //
+                            // Basic columns options
+                            //
+                            bar_one_yr_options = {
+
+                                // Setup grid
+                                grid: {
+                                    x: 40,
+                                    x2: 40,
+                                    y: 35,
+                                    y2: 25
+                                },
+                                tooltip: {
+                                    trigger: 'axis'
+                                },
+                                // Enable drag recalculate
+                                calculable: false,
+
+                                // Horizontal axis
+                                xAxis: [{
+                                        type: 'category',
+                                        data: <?php echo $allModules; ?>,
+                                        axisTick: {
+                                            alignWithLabel: false,
+                                            autoSkip: false
+                                        },
+                                        axisLabel: {
+                                            show: true,
+                                            rotate: 0,
+                                            margin: 5, 
+                                            interval: 0,
+                                            textStyle: {
+                                                fontSize: 10,
+                                                fontFamily: 'Roboto, sans-serif',
+                                                zIndex:9999,
+                                            },
+                                        },
+                                    }],
+
+                                // Vertical axis
+                                yAxis: [{
+                                        type: 'value'
+                                    }],
+
+                                // Add series
+                                series: [
+
+                                    {
+                                        name: 'Score (%)',
+                                        type: 'bar',
+                                        data: <?php echo $moduelsScore; ?>,
+                                        barMaxWidth: 40,
+                                        labelAngle: 30,
+                                        itemStyle: {
+                                            normal: {
+                                                label: {
+                                                    show: true,
+                                                    textStyle: {
+                                                        fontWeight: 500
+                                                    }
+                                                }
+                                            }
+                                        },
+
+                                    }
+                                ]
+                            };
+
+                            module_attempted_donut_option = {
+
+                                // Add title
+                                title: {
+                                    //text: 'Total 500 ',
+                                    // subtext: 'Open source information',
+                                    x: 'center',
+                                    textStyle: {
+                                        // fontSize:36,
+                                        //lineHeight: 56,
+                                        //color:'#333',
+                                    }
+
+                                },
+
+                                // Add legend
+                                // 
+
+                                // Display toolbox
+
+                                // Enable drag recalculate
+                                calculable: false,
+
+                                // Add series
+                                series: [
+                                    {
+                                        name: 'Browsers',
+                                        type: 'pie',
+                                        radius: ['50%', '70%'],
+                                        center: ['50%', '47.5%'],
+                                        itemStyle: {
+                                            normal: {
+                                                label: {
+                                                    show: true
+                                                },
+                                                labelLine: {
+                                                    show: true
+                                                }
+                                            },
+                                            emphasis: {
+                                                label: {
+                                                    show: true,
+                                                    formatter: '{b}' + '\n\n' + '{c} ({d}%)',
+                                                    position: 'center',
+                                                    textStyle: {
+                                                        fontSize: '17',
+                                                        fontWeight: '500'
+                                                    }
+                                                }
+                                            }
+                                        },
+
+                                        data: <?php echo $moduleAttempt; ?>
+                                    }
+                                ]
+                            };
+
+                            radar_basic_options = {
+
+                                // Add title
+                                title: {
+                                    text: 'Domain Proficiency',
+                                    x: 'center'
+                                },
+
+                                // Setup polar coordinates
+                                polar: [{
+                                        center: ['50%', '60%'],
+                                        radius: '70%',
+                                        indicator: [
+
+                                            {text: 'Create', max: 100},
+                                            {text: 'Evaluate', max: 100},
+                                            {text: 'Analyze', max: 100},
+                                            {text: 'Apply', max: 100},
+                                            {text: 'Understand', max: 100}
+                                        ]
+                                    }],
+
+                                // Add series
+                                series: [{
+                                        name: 'Budget vs spending',
+                                        type: 'radar',
+                                        data: [
+                                            {
+                                                value: [100, 28, 50, 50, 60]
+                                            }
+                                        ]
+                                    }]
+                            };
+
+
+                            // Apply options
+                            // ------------------------------
+                            bar_one_yr.setOption(bar_one_yr_options);
+                            module_attempted_donut.setOption(module_attempted_donut_option);
+                            radar_basic.setOption(radar_basic_options);
+                            // Resize charts
+                            // ------------------------------
+
+                            window.onresize = function () {
+                                setTimeout(function () {
+                                    bar_one_yr.resize();
+                                    module_attempted_donut.resize();
+                                    radar_basic.resize();
+                                }, 200);
+                            }
+
+                            $(".nav-tabs a").on("shown.bs.tab", function (event) {
+                                bar_one_yr.resize();
+                                module_attempted_donut.resize();
+                                radar_basic.resize();
+                            });
+
+                        }
+                );
+
+            }
+    );
+
+
+
+
+</script>
+
+<style type="text/css">
+    .pp-subhead .point-list ul li .value {
+        /* vertical-align: middle; */
+        font-size: 36px;
+        color: #3367d6;
+        /* text-shadow: 1px 1px 1px #607d8b; */
+
+    }
+
+    .pp-subhead .point-list ul li .name {
+        color: #777;
+        font-size: 28px;
+        line-height: normal;
+        max-width: 100px;
+        /* display: inline-block;*/
+        /* vertical-align: middle; */
+        margin-right: 11px;
+        text-align: right;
+    }
+
+    .custom-psh {
+        border-bottom: 1px solid #ddd;
+    }
+    .list-inline{ text-align: center;margin-top:5px;margin-bottom:0;	}
+    .custom-psh .point-list ul li{
+        line-height:24px;
+    }
+</style>
+
+
+
+<script>
+    var NO_DATA_AVAILABLE = "No Data Available";
+    $(function () {
+        displayUserList('acticity-listing', '<?php echo $this->url('report', array('action' => 'report')); ?>');
+    });
+
+    function displayUserList(target, url, bSort, searching) {
+        if (typeof bSort == "undefined") {
+            bSort = true;
+        }
+        if (typeof searching == "undefined") {
+            searching = true;
+        }
+
+        /************** Data Table Start ****************/
+        $.extend($.fn.dataTable.defaults, {
+            autoWidth: false,
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+        });
+        // Basic datatable initialization
+        table = $('#' + target).DataTable({
+            responsive: true,
+            processing: true,
+            serverSide: true,
+            searching: searching,
+            ordering: true,
+            order: [[0, "desc"]],
+            aoColumnDefs: [
+                {"bSearchable": true, "aTargets": [0], orderable: false},
+                {"bSearchable": true, "aTargets": [1], orderable: false},
+                {"bSearchable": true, "aTargets": [2]},
+                {"bSearchable": true, "aTargets": [3]},
+                {"bSearchable": true, "aTargets": [4], orderable: false},
+                {"bSearchable": true, "aTargets": [5], orderable: false},
+                {"bSearchable": true, "aTargets": [8], orderable: false},
+            ],
+            ajax: {
+                url: url,
+                dataSrc: function (d) {
+                    return d.result;
+                },
+                data: function (d) {
+                    d.end_date = $("#end_date_time").val();
+                },
+                beforeSend: function (request) {
+                }
+            },
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-default'
+                    }
+                },
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
+            },
+            language: {
+                emptyTable: 'No Data',
+                search: '<span>Search:</span> _INPUT_',
+                lengthMenu: '<span>Show:</span> _MENU_', "sZeroRecords": "", "sEmptyTable": "",
+                paginate: {first: 'First', last: 'Last', next: '&rarr;', previous: '&larr;'},
+            },
+            fnDrawCallback: function (oSettings) {
+                $('#all-checkbox').attr("checked", false);
+                $('#all-checkbox').parent('span').removeClass('checked');
+                $('#user-enroll').hide();
+                checkboxFound = false;
+                $('#check-all-books').attr('checked', false); // Unchecks it
+                /************* script to hide 'check all checkbox'
+                 * if not any checkbox found in li elements ******************/
+                for (var i = 1; i <= oSettings._iDisplayLength; i++) {
+                    if ($("#" + target + " tbody tr:nth-child(" + i + ") td li input[type='checkbox']").length) {
+                        checkboxFound = true;
+                    }
+                }
+                if (!checkboxFound) {
+                    $('.' + target + '-check-all-btn').hide();
+                } else {
+                    $('.' + target + '-check-all-btn').show();
+                }
+                if ($('#' + target).find('tbody>tr:first-child>td').length < 2) {
+                    $('#' + target + '_paginate').hide();
+                    $('#' + target + '_info').hide();
+                    $('.dataTables_empty').html("<span>" + NO_DATA_AVAILABLE + "</span>");
+                } else {
+                    $('#' + target + '_paginate').show();
+                    $('#' + target + '_info').show();
+
+                }
+                $(this).find('tbody tr').slice(-2).find('.dropdown, .btn-group').addClass('dropup');
+
+                // Initializing dropdown menu
+                if ($('[menulist]').length) {
+                    $().menu('update');
+                }
+
+            }, initComplete: function () {
+                $('.dataTables_empty').html("<span>" + NO_DATA_AVAILABLE + "</span>");
+            },
+            preDrawCallback: function () {
+                $(this).find('tbody tr').slice(-2).find('.dropdown, .btn-group').removeClass('dropup');
+            }
+        });
+        $.fn.DataTable.ext.pager.numbers_length = 5;
+    }
+</script>
