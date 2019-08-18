@@ -33,4 +33,4 @@ This will show the all the users activity played on WebVR Devices and Platform
 
 ## License
 
-This program is free software for both commercial and non-commercial use, distributed under the [MIT License](https://github.com/Veativetech/Impact-Analysis-Platform/edit/master/LICENSE).
+This program is free software for both commercial and non-commercial use, distributed under the [MIT License](https://github.com/Veativetech/Impact-Analysis-Platform/blob/master/LICENSE.txt).
