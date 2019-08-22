@@ -18,7 +18,7 @@ Veative WebVR is a an offering of 12 interactive, STEM modules, with assessment.
 ```
 git clone https://github.com/Veativetech/Impact-Analysis-Platform.git
 ```
-- Place this project inside htdocs folder
+- Place this project inside htdocs or www folder
 - Open http://localhost/phpmyadmin in URL and create database "unicef_db"
 - Import SQL file "unicef_db.sql" in PhpMyAdmin
 - Find sample data SQL file "sample-data.sql" in root folder
