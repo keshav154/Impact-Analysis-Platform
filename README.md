@@ -20,8 +20,8 @@ git clone https://github.com/Veativetech/Impact-Analysis-Platform.git
 ```
 - Place this project inside htdocs or www folder
 - Open http://localhost/phpmyadmin in URL and create database "unicef_db"
-- Import SQL file "unicef_db.sql" in PhpMyAdmin
-- Find sample data SQL file "sample-data.sql" in root folder
+- Import SQL file ["unicef_db.sql"](https://github.com/Veativetech/Impact-Analysis-Platform/blob/master/unicef_db.sql) in PhpMyAdmin
+- Find sample data SQL file ["sample-data.sql"](https://github.com/Veativetech/Impact-Analysis-Platform/blob/master/sample-data.sql) in root folder
 
 ## Database configuration
 
