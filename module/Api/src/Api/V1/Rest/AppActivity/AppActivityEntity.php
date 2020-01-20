@@ -3,12 +3,13 @@ namespace Api\V1\Rest\AppActivity;
 
 class AppActivityEntity {
 
-    public $UUID;
-    public $USR_NAME;
-    public $USR_AGE;
-    public $USR_AVATAR;
-    public $USR_GENDER;
-    public $USR_LANGUAGE;
+   // public $UUID;
+    //public $USR_NAME;
+    //public $USR_AGE;
+    //public $USR_AVATAR;
+    public $USER_OID;
+    //public $USR_GENDER;
+   // public $USR_LANGUAGE;
     public $GL_MODULE_ID;
     public $GL_MODULE_NAME;
     public $GL_LEVEL_ID;
@@ -32,12 +33,13 @@ class AppActivityEntity {
 
     public function getArrayCopy() {
         return array(
-            'UUID' => $this->UUID,
-            'USR_NAME' => $this->USR_NAME,
-            'USR_AGE' => $this->USR_AGE,
-            'USR_AVATAR' => $this->USR_AVATAR,
-            'USR_GENDER' => $this->USR_GENDER,
-            'USR_LANGUAGE' => $this->USR_LANGUAGE,
+            //'UUID' => $this->UUID,
+            //'USR_NAME' => $this->USR_NAME,
+           // 'USR_AGE' => $this->USR_AGE,
+            //'USR_AVATAR' => $this->USR_AVATAR,
+            'USER_OID' => $this->USER_OID,
+            //'USR_GENDER' => $this->USR_GENDER,
+            //'USR_LANGUAGE' => $this->USR_LANGUAGE,
             'GL_MODULE_ID' => $this->GL_MODULE_ID,
             'GL_MODULE_NAME' => $this->GL_MODULE_NAME,
             'GL_LEVEL_ID' => $this->GL_LEVEL_ID,
@@ -63,11 +65,12 @@ class AppActivityEntity {
    
 
     public function exchangeArray(array $array) {
-        $this->UUID = isset($array['UUID']) ? $array['UUID'] : null;
-        $this->USR_NAME = isset($array['USR_NAME']) ? $array['USR_NAME'] : null;
-        $this->USR_AGE = isset($array['USR_AGE']) ? $array['USR_AGE'] : null;
-        $this->USR_AVATAR = isset($array['USR_AVATAR']) ? $array['USR_AVATAR'] : null;
-        $this->USR_GENDER = isset($array['USR_GENDER']) ? $array['USR_GENDER'] : null;
+        //$this->UUID = isset($array['UUID']) ? $array['UUID'] : null;
+       // $this->USR_NAME = isset($array['USR_NAME']) ? $array['USR_NAME'] : null;
+       // $this->USR_AGE = isset($array['USR_AGE']) ? $array['USR_AGE'] : null;
+        //$this->USR_AVATAR = isset($array['USR_AVATAR']) ? $array['USR_AVATAR'] : null;
+        $this->USER_OID = isset($array['USER_OID']) ? $array['USER_OID'] : null;
+        //$this->USR_GENDER = isset($array['USR_GENDER']) ? $array['USR_GENDER'] : null;
         $this->USR_LANGUAGE = isset($array['USR_LANGUAGE']) ? $array['USR_LANGUAGE'] : null;
         $this->GL_MODULE_ID = isset($array['GL_MODULE_ID']) ? $array['GL_MODULE_ID'] : null;
         $this->GL_MODULE_NAME = isset($array['GL_MODULE_NAME']) ? $array['GL_MODULE_NAME'] : null;

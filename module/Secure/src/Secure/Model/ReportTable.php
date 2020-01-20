@@ -48,13 +48,13 @@ class ReportTable {
      */
     public function getActivityTableColumn() {
         try {
-            $sql       = "DESCRIBE t_unicef_usractivity";
+            $sql = "DESCRIBE t_unicef_usractivity";
             $statement = $this->adapter->createStatement($sql);
             $statement->prepare();
-            $result    = $statement->execute();
+            $result = $statement->execute();
             return $this->returnPrepareResult($result);
         } catch (\Exception $ex) {
-            $this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
+            //$this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
         }
     }
 
@@ -65,17 +65,18 @@ class ReportTable {
      */
     public function getUserActivity($pagingData = array()) {
         try {
-            $length      = !empty($pagingData['LENGTH']) ? intval($pagingData['LENGTH']) : 10;
-            $start       = !empty($pagingData['START']) ? intval($pagingData['START']) : 0;
-            $order       = !empty($pagingData['ORDER']) ? $pagingData['ORDER'] : 'DESC';
-            $orderBy     = !empty($pagingData['COLUMN']) ? $pagingData['COLUMN'] : 'ACTIVITY_ID';
-            $searchKey   = $pagingData['SEARCH'];
+            $length = !empty($pagingData['LENGTH']) ? intval($pagingData['LENGTH']) : 10;
+            $start = !empty($pagingData['START']) ? intval($pagingData['START']) : 0;
+            $order = !empty($pagingData['ORDER']) ? $pagingData['ORDER'] : 'DESC';
+            $orderBy = !empty($pagingData['COLUMN']) ? $pagingData['COLUMN'] : 'ACTIVITY_ID';
+            $searchKey = $pagingData['SEARCH'];
             $this->table = $this->initTableObject('t_unicef_usractivity');
-            $select      = $this->table->getSql()->select();
+            $select = $this->table->getSql()->select();
             $select->columns(array('*'));
+            $select->join('t_unicef_user', 't_unicef_user.USER_OID=t_unicef_usractivity.USER_OID', array('USERNAME', 'FIRST_NAME', 'LAST_NAME','USER_AGE', 'GENDER_ID'),'inner');
             if (!empty($searchKey)) {
                 $select->where->nest
-                                ->like('t_unicef_usractivity.USR_NAME', '%' . $searchKey . '%')
+                                ->like('t_unicef_user.FIRST_NAME', '%' . $searchKey . '%')
                         ->unnest;
             }
             $select->order("$orderBy $order");
@@ -83,61 +84,65 @@ class ReportTable {
             $select->offset($start);
 
             $resultSet = $this->table->selectWith($select);
-             
+
             return $resultSet->toarray();
         } catch (\Exception $ex) {
-            $this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
+            //$this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
         }
     }
 
     public function getUserActivityCount($pagingData = array()) {
         try {
-            $order       = !empty($pagingData['ORDER']) ? $pagingData['ORDER'] : 'DESC';
-            $orderBy     = !empty($pagingData['COLUMN']) ? $pagingData['COLUMN'] : 'ACTIVITY_ID';
-            $searchKey   = $pagingData['SEARCH'];
+            $order = !empty($pagingData['ORDER']) ? $pagingData['ORDER'] : 'DESC';
+            $orderBy = !empty($pagingData['COLUMN']) ? $pagingData['COLUMN'] : 'ACTIVITY_ID';
+            $searchKey = $pagingData['SEARCH'];
             $this->table = $this->initTableObject('t_unicef_usractivity');
-            $select      = $this->table->getSql()->select();
+            $select = $this->table->getSql()->select();
             $select->columns(array('*'));
+            $select->join('t_unicef_user', 't_unicef_user.USER_OID=t_unicef_usractivity.USER_OID', array('USERNAME', 'FIRST_NAME', 'LAST_NAME','USER_AGE', 'GENDER_ID'),'inner');
             if (!empty($searchKey)) {
                 $select->where->nest
-                                ->like('t_unicef_usractivity.USR_NAME', '%' . $searchKey . '%')
+                                ->like('t_unicef_user.FIRST_NAME', '%' . $searchKey . '%')
                         ->unnest;
             }
             $select->order("$orderBy $order");
             $resultSet = $this->table->selectWith($select);
             return $resultSet->count();
         } catch (\Exception $ex) {
-            $this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
+            //$this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
         }
     }
-    
-    public function getAllModule( ) {
+
+    public function getAllModule() {
         try {
-             
+
             $this->table = $this->initTableObject('t_unicef_usractivity');
-            $select      = $this->table->getSql()->select();
+            $select = $this->table->getSql()->select();
             $select->columns(array('GL_MODULE_NAME', 'SCORE' => new Expression('round((sum(TR_USER_SCORE)/sum(LL_MAX_SCORE)*100),2)')));
             $select->group('GL_MODULE_ID');
             $resultSet = $this->table->selectWith($select);
-             
+
             return $resultSet->toArray();
         } catch (\Exception $ex) {
-            $this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
+            //$this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
         }
     }
+
     public function getAllModuleAttemt() {
-        try {             
+        try {
             $this->table = $this->initTableObject('module_attempt');
-            $select      = $this->table->getSql()->select();
+            $select = $this->table->getSql()->select();
             $select->columns(array('GL_MODULE_NAME', 'COUNT' => new Expression('count(GL_MODULE_NAME)')));
             $select->group('GL_MODULE_NAME');
             $resultSet = $this->table->selectWith($select);
+            
             return $resultSet->toArray();
         } catch (\Exception $ex) {
-            $this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
+            //$this->log($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), true);
         }
     }
-    
+
+   
 
     /**
      * @desc used of this function for convert obj to array

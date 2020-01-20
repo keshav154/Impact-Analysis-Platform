@@ -64,7 +64,7 @@ class AppActivityResource extends AbstractResourceListener implements ServiceLoc
                         $entity->exchangeArray($dataRowV);
                          
                         $activity = $entity->getArrayCopy();
-                        $checkUUidForQId = $this->mapper->fetchData(['GL_QUESTION_ID' => $activity['GL_QUESTION_ID'], 'UUID' => $activity['UUID']], 't_unicef_usractivity');
+                        $checkUUidForQId = $this->mapper->fetchData(['GL_QUESTION_ID' => $activity['GL_QUESTION_ID'], 'USER_OID' => $activity['USER_OID']], 't_unicef_usractivity');
                          
                         if (empty($checkUUidForQId)) {
                             $saveActivity[] = $entity->getArrayCopy();

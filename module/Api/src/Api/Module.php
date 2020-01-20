@@ -63,6 +63,7 @@ class Module implements ApigilityProviderInterface {
                     $adapter = $sm->get('Zend\Db\Adapter\Adapter');
                     return new \Api\V1\Rest\AppActivity\AppActivityMapper($adapter);
                 },
+                 
             ),
         );
     }

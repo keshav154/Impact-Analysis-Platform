@@ -14,48 +14,6 @@ return [
                     ),
                 ),
             ),
-            'sign-up' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
-                'options' => array(
-                    'route' => '/sign-up',
-                    'defaults' => array(
-                        'controller' => 'Secure\Controller\Index',
-                        'action' => 'signUp',
-                    ),
-                ),
-            ),
-            'login' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
-                'options' => array(
-                    'route' => '/login',
-                    'defaults' => array(
-                        'controller' => 'Secure\Controller\Index',
-                        'action' => 'login',
-                    ),
-                ),
-            ),
-            'logout' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
-                'options' => array(
-                    'route' => '/logout',
-                    'defaults' => array(
-                        'controller' => 'Secure\Controller\Index',
-                        'action' => 'logout',
-                    ),
-                ),
-            ),
-            'refresh-captcha' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
-                'options' => array(
-                    'route' => '/refresh-captcha',
-                    'defaults' => array(
-                        'controller' => 'Secure\Controller\Index',
-                        'action' => 'refreshCaptcha',
-                    ),
-                ),
-            ),
-
-            
             'report' => array(
                 'type' => 'segment',
                 'options' => array(

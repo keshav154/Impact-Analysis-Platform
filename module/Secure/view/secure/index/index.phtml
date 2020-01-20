@@ -1,17 +1,18 @@
-<script>
-$(window).load(function() {
-    $("#session_unicef").hide();
-    var unicef_name_cooki = getCookie('unicef_name');
-    if(unicef_name_cooki!=''){
-        $("#session_unicef").show();
-        $("#cooki_name").text(unicef_name_cooki);
-    }
-});
-</script>
+<?php
+$selectedCallingCode = '';
+$config = $this->config();
+$local = $config->getConfig();
+?>
 <div class="filter-search-header" style="min-height:60px">
-    <div id='session_unicef' style="display: block;color: #d2cccc;float: right;padding: 20px 30px;font-size: 20px;">
-        Hi, <span id='cooki_name'></span> <span style="cursor: pointer;font-size: 12px;" onclick="removeCookies();">(Not You?)</span>
-    </div>
+    <?php if (!empty($usrData)) { ?>
+        <div id='session_unicef' style="display: block;color: #d2cccc;float: right;padding: 20px 30px;font-size: 20px;">
+            Hi, <span id='cooki_name'><?php echo $usrData['USERNAME']; ?></span> <span style="cursor: pointer;font-size: 12px;" onclick="removeCookies();">(Not You?)</span>
+        </div>
+    <?php } else { ?>
+        <div class="pull-right" style="padding:17px 20px;">
+            <a data-toggle="modal" data-target="#signInModal" style="color:#fff; cursor:pointer; font-size:16px;"><i class="glyphicon glyphicon-off"></i> Login</a>
+        </div>
+    <?php } ?>
 </div>
 <div class="page-container">
     <!-- Page content --> 
@@ -47,7 +48,7 @@ $(window).load(function() {
                                 <div class="card-text ">
                                     In phenol, hydroxy functional group is directly attached to the sp2 hybridized carbon atom of the benzene ring. The interaction of six unhybridized 2pz orbitals of carbon atoms of the benzene ring leads to the formation of delocalized pi-electron clouds.
                                 </div>
-                                
+
                             </div>
                         </a>
                     </div>
@@ -107,6 +108,95 @@ $(window).load(function() {
                             </div>
                         </a>
                     </div> 
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('hs200040')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Rutherford’s Atomic Model" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_HS200040.jpg">
+                                <div class="card-block"></div>
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Rutherford’s Atomic Model</h4>
+                                <div class="card-text ">
+                                    According to Rutherford’s atomic model, the atom consists of two parts. First is the nucleus which is very small in size and  carries a positive charge, and in which the entire mass of the atom is concentrated. The second part is the extra nuclear part, in which negatively charged electrons revolve around the nucleus on fixed circular paths.
+                                </div>
+                            </div>
+                        </a>
+                    </div> 
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('hs400060')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Galvanometer" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_HS400060.jpg">
+                                <div class="card-block"></div>
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Galvanometer</h4>
+                                <div class="card-text ">
+                                    A galvanometer is a device that uses an electromagnet to measure and detect small electric currents. A galvanometer also gives the direction of current flow.
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('ms100176')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Dominant and Recessive Alleles" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_MS100176.jpg">
+                                <div class="card-block"></div> 
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Dominant and Recessive Alleles</h4>
+                                <div class="card-text ">
+                                    The alternate forms of a gene are called alleles. Alleles are either dominant or recessive depending on the trait associated with them. Dominant allele is able to express itself even in the presence of its recessive allele. While recessive allele expresses itself only in the presence of similar allele.
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('ms300045')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Lines" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_MS300045.jpg">
+                                <div class="card-block"></div>
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Lines</h4>
+                                <div class="card-text ">
+                                    A line is defined as a line of points that extend infinitely in two directions. A part of a line that is bounded by two distinct end points is defined as line segment. A ray is defined as a line with one endpoint.
+                                </div>
+                            </div>
+                        </a> 
+                    </div>
+
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('hs200069')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Lewis dot Structure" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_HS200069.jpg">
+                                <div class="card-block"></div>
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Lewis dot Structure</h4>
+                                <div class="card-text ">
+                                    Lewis dot structures of atoms are the representations that show valence electrons as dots around the element’s chemical symbol. Lewis dot structures of molecules are the representations that show the bonding between atoms and lone pairs of electrons.
+                                </div>
+                            </div>
+                        </a> 
+                    </div>
+
+                    <div  style="position:relative" class="anchor-tag">
+                        <a href="javascript:void(0)" onclick="checkCookie('ms100057')">
+                            <div class="card">
+                                <img class="card-img-top" alt="Human Brain" src="https://s3.amazonaws.com/bucket.veative.com/CONTENTBANK/thumb_MS100057.jpg">
+                                <div class="card-block"></div>
+                            </div>
+                            <div class="card-block-outer">
+                                <h4 class="card-title mt-3">Human Brain</h4>
+                                <div class="card-text ">
+                                    The human brain is one of the complex organs of the human body. The brain has three main parts, the cerebrum, the cerebellum, and the brain stem. The brain is divided into regions that control specific functions.
+                                </div>
+                            </div>
+                        </a>  
+                    </div>
+
                 </div>
             </div>
             <!-- /custom components -->
@@ -116,150 +206,551 @@ $(window).load(function() {
     <!-- /page content -->
 </div>
 <!-- /page container -->
-<!-- Basic modal -->
-<div id="modal_default" class="modal fade">
+
+<div class="modal" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="false">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close model_close" data-dismiss="modal">&times;</button>
-                <h5 class="modal-title">Please save your basic details</h5>
-            </div>
-            <div class="modal-body">                
-                    <fieldset class="mb-3">
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Full Name</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="Enter your fullname..." id="username" name="username" maxlength="100">
+        <div class="modal-custom-section">
+            <div class="modal-content modal-sm">			     
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="signInModalLabel">Sign In</h4>
+                </div>
+                <div class="modal-body"> 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mb-10" id="success-error-message">
+                                <div id="displayMsg"></div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Age</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="Enter your age..." id="age" name="age" maxlength="3">
+                            <?php
+                            $config = $this->config();
+                            $loginFrm = $this->loginFrm;
+
+                            $loginFrm->setAttribute('action', $this->url('login', array('method' => 'post', 'module' => 'secure')));
+                            $loginFrm->setAttribute('id', 'loginForm');
+                            $loginFrm->prepare();
+                            echo $this->form()->openTag($loginFrm);
+                            echo $this->formHidden($loginFrm->get('csrf'));
+                            ?>  
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                                    <?php echo $this->formText($loginFrm->get('username')) ?>  
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Gender</label>
-                            <div class="col-lg-10">
-                                <select class="form-control select" data-fouc id="gender" name="gender">
-                                    <option value="Boy">Boy</option>
-                                    <option value="Girl">Girl</option>
-                                </select>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-key"></i></span>
+                                    <?php echo $this->formPassword($loginFrm->get('password')) ?> 
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-2">Avatar</label>
-                            <div class="col-lg-10">
-                                <select data-placeholder="Select avatar" class="form-control select" data-fouc id="avatar" name="avatar">
-                                    <option value="Monkey"  selected> Monkey</option>
-                                    <option value="Snake" >Snake</option>
-                                    <option value="Zebra" >Zebra</option>
-                                    <option value="Flower" >Flower</option>
-                                    <option value="Rain" >Rain</option>
-                                </select>
+
+                            <div class="modal-footer">
+                                <?php echo $this->formRow($loginFrm->get('login')); ?>
                             </div>
+
+                            <div class="text-center">
+                                <p>Don't have an account? <a style="color:#fff; cursor:pointer;" onclick="loginPop()">Sign Up</a></p>
+                            </div>
+                            </form>
                         </div>
-                    </fieldset>
-                    <div class="text-right">
-                        <input type="hidden" id="module_id" name="module_id">
-                        <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
                     </div>
-                
-            </div>            
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!--Modal for uploading photo-->
+<div class="modal" id="singup-modal" tabindex="-1" role="dialog" aria-labelledby="singup-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-custom-section">
+            <div class="modal-content modal-sm">			
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="signInModalLabel">Sign Up</h4>
+                </div>
+                <div class="modal-body"> 
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mb-10" id="success-error-message">
+                                <div id="displayMsg1"></div>
+                            </div>
+                            <?php
+                            $config = $this->config();
+                            $form = $this->form;
+
+                            $form->setAttribute('action', $this->url('sign-up', array('method' => 'post', 'router' => 'sign-up', 'module' => 'secure')));
+                            $form->setAttribute('id', 'userSignUpFrm');
+                            $form->prepare();
+                            echo $this->form()->openTag($form);
+                            ?>                         
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <?php echo $this->formText($form->get('FULL_NAME')) ?> 
+                            </div>
+                            <div class="form-group">
+                                <label>Email Id</label>
+                                <?php echo $this->formText($form->get('EMAIL_ID')) ?> 
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <?php echo $this->formText($form->get('USER_NAME')) ?> 
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <?php echo $this->formPassword($form->get('USER_PASSWORD')) ?> 
+                            </div>
+
+                            <div class="form-group">
+                                <label>Age</label>
+                                <?php echo $this->formText($form->get('USER_AGE')) ?> 
+                            </div>
+                            <div class="form-group">
+                                <label for="newpwd">Gender</label>
+                                <?php echo $this->formSelect($form->get('USER_GENDER')) ?> 
+                            </div>
+                            <div class="form-group" style="position:relative;">		
+                                <label>Captcha <a href="javascript:void(0)" id="refreshcaptcha" class=""><i class="icon-reset"></i></a></label>
+
+                                <?php echo $this->formRow($form->get('captcha')); ?>
+                                <div class="elem-errr text-danger" id="captcha_error"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" name="userSignUp" id="userSignUpFrm-btn" class="btn btn-dark btn-block" onclick="submitForm('#userSignUpFrm', event);" value="Sign Up">
+                            </div>
+                            <div class="text-center">
+                                <p>Already have an account? <a id="btnUploadCancel" style="color:#fff; cursor:pointer;" onclick="signUpPop()">Sign in</a></p>
+                            </div>
+                            <?php $this->form()->closeTag(); ?> 
+                        </div>
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- /basic modal -->
- <link href="<?php echo $this->basePath('css/icons/icomoon/styles.css'); ?>" rel="stylesheet" type="text/css">
-<script type="text/javascript" charset="UTF-8" src="<?php echo $this->basePath('js/pages/components_modals.js?v='.filemtime(getcwd()."/public/js/pages/components_modals.js")); ?>"></script>
+<link href="<?php echo $this->basePath('css/icons/icomoon/styles.css'); ?>" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="UTF-8" src="<?php echo $this->basePath('js/pages/components_modals.js?v=' . filemtime(getcwd() . "/public/js/pages/components_modals.js")); ?>"></script>
 <script>
-$(document).ready(function(){
-	 
-    $(".error").remove();
-    var validate = true;
-    $("#submitBtn").click(function(){        
-        var username = $('#username').val();
-        var age = $('#age').val();        
-        var gender = $('#gender').val();        
-        var avatar = $('#avatar').val();        
-        age = parseInt($('#age').val());        
-        $(".error").remove();
-        
-        if (username.length < 1) {
-            $('#username').after('<span class="error">Please enter full name.</span>');
-            validate = false;
-        } else if (age.length < 1) {
-            $('#age').after('<span class="error">Please enter age.</span>');
-            validate = false;
-        } else if(isNaN(age)){
-            $('#age').after('<span class="error">Please valid age.</span>');
-            validate = false;
-        } else if (age < 1) {
-            $('#age').after('<span class="error">Please valid age.</span>');
-            validate = false;
-        } else if (gender.length < 1) {
-            $('#gender').after('<span class="error">Please select gender.</span>');
-            validate = false;
-        } else if (avatar.length < 1) {
-            $('#avatar').after('<span class="error">Please select avtar.</span>');
-            validate = false;
-        }else{
-            validate = true;
-        }
+                                    $('#refreshcaptcha').click(function () {
+                                        $.ajax({
+                                            url: basepath + '/refresh-captcha',
+                                            dataType: 'json',
+                                            success: function (data) {
+                                                console.log(data);
+                                                $('#captcha-image').attr('src', data.src);
+                                                $('#captcha-hidden').val(data.id);
+                                            }
+                                        });
+                                        return false;
+                                    });
+
+                                    function removeCookies() {
+                                        document.cookie = 'unicef_user_id=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                                        $.ajax({url: basepath + "/logout", success: function (result) {
+                                                window.location.reload();
+                                            }});
+                                    }
+
+                                    function getCookie(cname) {
+                                        var name = cname + "=";
+                                        var decodedCookie = decodeURIComponent(document.cookie);
+                                        var ca = decodedCookie.split(';');
+                                        for (var i = 0; i < ca.length; i++) {
+                                            var c = ca[i];
+                                            while (c.charAt(0) == ' ') {
+                                                c = c.substring(1);
+                                            }
+                                            if (c.indexOf(name) == 0) {
+                                                return c.substring(name.length, c.length);
+                                            }
+                                        }
+                                        return "";
+                                    }
+                                    function checkCookie(moduleId) {
+                                        if (getCookie('unicef_user_id') === '') {
+                                            $("#module_id").val(moduleId);
+                                            $("#signInModal").modal('show');
+                                        } else {
+
+                                            window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/" + moduleId;
+                                        }
+                                    }
+                                    function loginPop() {
+                                        $('#signInModal').modal('toggle');
+                                        $('#singup-modal').modal('show');
+                                    }
+
+                                    function signUpPop() {
+                                        $('#singup-modal').modal('hide');
+                                        $('#signInModal').modal('show');
+                                    }
+                                    //function to form submit using Ajax
+                                    function loginSubmitForm(formSelector, e, lpContent, mdError, default_async) {
+                                        $('.loader-password').removeClass('hide');
+                                        $('.loader-password').addClass('show');
+                                        e.preventDefault();
+                                        if (typeof default_async == "undefined") {
+                                            default_async = true;
+                                        }
+
+                                        var elementCollection = [];
+                                        if ($(formSelector + ' .validation-filter').val() === 'yes') {
+                                            elementCollection = [];
+                                        }
+                                        // calling this method if no error found during country filteration
+                                        hideMsg('#displayMsg', true);
+                                        var formObj = $(formSelector);
+                                        //console.log(formObj);
+                                        var postData = formObj.serializeArray();
+                                        var formURL = formObj.attr("action");
+                                        var mess = '';
+                                        var buttonval = $(formSelector + '-btn').val();
+                                        $.ajax({
+                                            url: formURL,
+                                            type: "POST",
+                                            dataType: "json",
+                                            async: default_async,
+                                            data: postData,
+                                            beforeSend: function () {
+                                                if ($("#loader").length > 0) {
+                                                    startLoader("#loader");
+                                                    window.scrollTo(10, 10);
+                                                }
+                                                $(formSelector + '-btn').attr('disabled', true);
+                                            },
+
+                                            success: function (data) {
+                                                if ($("#loader").length > 0) {
+                                                    $("#loader").unblock();
+                                                }
+                                                if (formSelector != '#authenticate-user') {
+                                                    $(formSelector + '-btn').val(buttonval);
+                                                    $(formSelector + '-btn').attr('disabled', false);
+                                                }
+                                                //console.log(data.data);
+                                                $('.elem-err').remove();
+
+                                                if (!data.data.result) {
+
+                                                    if (typeof data.data.message === 'object') {
+                                                        jQuery.each(data.data.message, function (k, v) {
+                                                            jQuery.each(v, function (kk, vv) {
+                                                                mess += vv + '\n';
+                                                                $('.loader-password').removeClass('show');
+                                                                $('.loader-password').addClass('hide');
+                                                                $(formSelector + '-btn').val(buttonval);
+                                                                $(formSelector + '-btn').attr('disabled', false);
+                                                            });
+                                                            inpKey = k;
+                                                            if (k == 'csrf') {
+                                                                setErrorMessage(mess);
+
+                                                                return false;
+                                                            }
+                                                            if (mess != '') {
+
+                                                                if (mdError) {
+                                                                    formObj.find("[name='" + inpKey + "']").mdError(false, mess)
+                                                                }
+                                                                if (formObj.find("[name='" + inpKey + "']").parents('.form-group:first').find('span.elem-err').length == 0) {
+                                                                    formObj.find("[name='" + inpKey + "']").parents('.form-group:first').append('<div class="elem-err text-danger"><span>' + mess + '</span></div>');
+                                                                } else {
+                                                                    formObj.find("[name='" + inpKey + "']").parents('.form-group:first').append('span.elem-err').text(mess);
+                                                                }
+
+                                                            }
+                                                            mess = '';
+                                                        });
+                                                    } else {
+
+                                                        if (data.data.target !== undefined) {
+                                                            showCustomMsg(data);
+                                                        } else {
+                                                            if (data.data.assignuser) {
+                                                                setErrorMessage(data.data.message, false, 'assign-user-msg');
+
+                                                            } else if (data.data.youtube) {
+                                                                setErrorMessage(data.data.message, false, 'error-msg-youtube');
+                                                            } else {
+                                                                setErrorMessage(data.data.message);
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                } else {
+                                                    $(".body-icon").toggleClass("hide");
+
+                                                    if (mdError)
+                                                        $(formObj).find("input, select, textarea").each(function () {
+                                                            $(this).mdError(true);
+
+                                                        });
+
+                                                    if (data.data.current_path_redirect == 'Y') {
+                                                        window.location.href = basepath;
+                                                    }
+                                                    if (data.data.current_flag == 'Y') {
+                                                        showMsg(data.data.message);
+                                                        setTimeout(function () {
+                                                            window.location.href = basepath;
+                                                        }, 3000);
+                                                    }
+                                                    //setSuccessMessage(data.data.message, data.data.innerhtml);
+
+                                                    if (data.data.flag) {
+//                                                        var date = new Date();
+//                                                        date.setTime(date.getTime() + (60 * 60 * 24 * 1000 * 1));
+//                                                        var expires = "; expires=" + date.toGMTString();
+//
+//                                                        document.cookie = "unicef_user_id=" + data.data.unicef_user_id + expires + ";path=/";
+//                                                        document.cookie = "unicef_name=" + data.data.unicef_fname + expires + ";path=/";
+//                                                        document.cookie = "unicef_age=" + data.data.unicef_age + expires + ";path=/";
+//                                                        document.cookie = "unicef_gender=" + data.data.unicef_gender + expires + ";path=/";
+                                                        $('#singup-modal').find(".close").trigger('click');
+                                                        window.location.href = basepath;
+                                                    }
 
 
-        //console.log(validate);
-        if(validate){
-            var date = new Date();
-			date.setTime(date.getTime()+(60 * 60 * 24 * 1000 * 1));
-			var expires = "; expires="+date.toGMTString();
-			
-            document.cookie = "unicef_name="+username+expires+";path=/";
-            document.cookie = "unicef_age="+age+expires+";path=/";
-            document.cookie = "unicef_avatar="+avatar+expires+";path=/";
-            document.cookie = "unicef_gender="+gender+expires+";path=/";
-            $('#modal_default').find(".model_close").trigger('click');
 
-            //window.location.reload();
-            var module_id = $('#module_id').val();
-            window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/"+module_id;
-            
-        }
-    });
 
-});
-function removeCookies(){
-    document.cookie = 'unicef_name=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = 'unicef_age=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = 'unicef_avatar=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie = 'unicef_gender=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    window.location.reload();
-}
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-function checkCookie(moduleId){
-    if(getCookie('unicef_name') === ''){
-        $("#module_id").val(moduleId);
-        $("#modal_default").modal('show');
-    }else{
-        
-        window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/"+moduleId;
-    }
-}
+                                                    if (data.data.redirectUrl !== undefined) {
+                                                        // to display course/module subscription success/failure message
 
+
+                                                        //setTimeout(function () {
+                                                        window.location.href = data.data.redirectUrl;
+                                                        // }, 2000);
+
+
+                                                    }
+
+                                                    reapplyUniform();
+                                                }
+                                            },
+
+                                        });
+                                        e.preventDefault();
+                                        return false;
+
+                                    }
+
+                                    function setErrorMessage(msg, innerhtml, div) {
+                                        if (typeof div == "undefined") {
+                                            div = "";
+                                        }
+                                        if (!msg)
+                                            return false;
+                                        var strHtml = '<div class="alert alert-danger no-border p-10"><button type="button" class="close" data-dismiss="alert"><i class="icon-close2" ></i><span class="sr-only">Close</span></button><span class="text-semibold">' + msg + '</span></div>';
+                                        if (div != "") {
+                                            $('#' + div).html(strHtml);
+                                        } else {
+                                            if (innerhtml) {
+                                                $('#displayMsg').html(strHtml);
+                                            } else {
+                                                var msgLength = $('#displayMsg').find('.alert-danger').length;
+                                                if (msgLength == 0)
+                                                    $('#displayMsg').prepend(strHtml);
+                                            }
+                                        }
+                                    }
+
+                                    //function to form submit using Ajax
+                                    function submitForm(formSelector, e, lpContent, mdError, default_async) {
+
+                                        $('.loader-password').removeClass('hide');
+                                        $('.loader-password').addClass('show');
+                                        e.preventDefault();
+                                        if (typeof default_async == "undefined") {
+                                            default_async = true;
+                                        }
+
+
+
+                                        var elementCollection = [];
+
+
+                                        if ($(formSelector + ' .validation-filter').val() === 'yes') {
+
+                                            elementCollection = [];
+                                        }
+
+
+                                        // calling this method if no error found during country filteration
+                                        hideMsg('#displayMsg', true);
+                                        var formObj = $(formSelector);
+                                        console.log(formObj);
+                                        var postData = formObj.serializeArray();
+
+                                        var formURL = formObj.attr("action");
+                                        var mess = '';
+                                        var buttonval = $(formSelector + '-btn').val();
+
+                                        $.ajax({
+                                            url: formURL,
+                                            type: "POST",
+                                            dataType: "json",
+                                            async: default_async,
+                                            data: postData,
+                                            beforeSend: function () {
+                                                if ($("#loader").length > 0) {
+                                                    startLoader("#loader");
+                                                    window.scrollTo(10, 10);
+                                                }
+
+                                                $(formSelector + '-btn').attr('disabled', true);
+                                            },
+
+                                            success: function (data) {
+
+
+                                                if ($("#loader").length > 0) {
+                                                    $("#loader").unblock();
+                                                }
+                                                if (formSelector != '#authenticate-user') {
+                                                    $(formSelector + '-btn').val(buttonval);
+                                                    $(formSelector + '-btn').attr('disabled', false);
+                                                }
+                                                console.log(data.data);
+                                                $('.elem-err').remove();
+
+                                                if (!data.data.result) {
+                                                    if (data.data.captchaError != '') {
+                                                        $("#captcha_error").html(data.data.captchaError).show();
+                                                    } else {
+                                                        $("#captcha_error").html("").hide();
+                                                    }
+                                                    if (typeof data.data.message === 'object') {
+                                                        jQuery.each(data.data.message, function (k, v) {
+                                                            jQuery.each(v, function (kk, vv) {
+                                                                mess += vv + '\n';
+                                                                $('.loader-password').removeClass('show');
+                                                                $('.loader-password').addClass('hide');
+                                                                $(formSelector + '-btn').val(buttonval);
+                                                                $(formSelector + '-btn').attr('disabled', false);
+                                                            });
+                                                            inpKey = k;
+                                                            if (k == 'csrf') {
+                                                                setErrorMessage(mess);
+
+                                                                return false;
+                                                            }
+                                                            if (mess != '') {
+
+
+
+
+                                                                if (inpKey == 'COUNTRY_IDS') {
+                                                                    inpKey = 'COUNTRY_IDS[]';
+                                                                }
+
+                                                                if (mdError) {
+                                                                    formObj.find("[name='" + inpKey + "']").mdError(false, mess)
+                                                                }
+                                                                if (formObj.find("[name='" + inpKey + "']").parents('.form-group:first').find('span.elem-err').length == 0) {
+                                                                    formObj.find("[name='" + inpKey + "']").parents('.form-group:first').append('<div class="elem-err text-danger"><span>' + mess + '</span></div>');
+                                                                } else {
+                                                                    formObj.find("[name='" + inpKey + "']").parents('.form-group:first').append('span.elem-err').text(mess);
+                                                                }
+
+                                                            }
+                                                            mess = '';
+                                                        });
+                                                    } else {
+
+                                                        if (data.data.target !== undefined) {
+                                                            showCustomMsg(data);
+                                                        } else {
+                                                            if (data.data.assignuser) {
+                                                                setErrorMessage(data.data.message, false, 'assign-user-msg');
+
+                                                            } else if (data.data.youtube) {
+                                                                setErrorMessage(data.data.message, false, 'error-msg-youtube');
+                                                            } else {
+                                                                setErrorMessage(data.data.message, data.data.innerhtml);
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                } else {
+                                                    $(".body-icon").toggleClass("hide");
+
+                                                    if (mdError)
+                                                        $(formObj).find("input, select, textarea").each(function () {
+                                                            $(this).mdError(true);
+
+                                                        });
+
+                                                    if (data.data.current_path_redirect == 'Y') {
+                                                        window.location.href = basepath;
+                                                    }
+                                                    if (data.data.current_flag == 'Y') {
+                                                        showMsg(data.data.message);
+                                                        setTimeout(function () {
+                                                            window.location.href = basepath;
+                                                        }, 3000);
+                                                    }
+                                                    //setSuccessMessage(data.data.message, data.data.innerhtml);
+
+                                                    if (data.data.flag) {
+//                                                        var date = new Date();
+//                                                        date.setTime(date.getTime() + (60 * 60 * 24 * 1000 * 1));
+//                                                        var expires = "; expires=" + date.toGMTString();
+//
+//                                                        document.cookie = "unicef_user_id=" + data.data.unicef_user_id + expires + ";path=/";
+//                                                        document.cookie = "unicef_name=" + data.data.unicef_fname + expires + ";path=/";
+//                                                        document.cookie = "unicef_age=" + data.data.unicef_age + expires + ";path=/";
+//                                                        document.cookie = "unicef_gender=" + data.data.unicef_gender + expires + ";path=/";
+                                                        $('#singup-modal').find(".close").trigger('click');
+                                                        window.location.href = basepath;
+                                                    }
+
+
+
+
+
+                                                    if (data.data.redirectUrl !== undefined) {
+                                                        // to display course/module subscription success/failure message
+
+
+                                                        //setTimeout(function () {
+                                                        window.location.href = data.data.redirectUrl;
+                                                        // }, 2000);
+
+
+                                                    }
+
+                                                    reapplyUniform();
+                                                }
+                                            },
+
+                                        });
+                                        e.preventDefault();
+                                        return false;
+
+                                    }
+                                    //hide message after some times
+                                    function hideMsg(msgId, blankHtml) {
+                                        setTimeout(function () {
+                                            if (blankHtml) {
+                                                $(msgId).html('');
+                                            } else {
+                                                $(msgId).fadeOut('fast');
+                                            }
+                                        }, 5100);
+                                    }
+//restrict input is only integer
+                                    function isNumberKey(evt) {
+                                        var charCode = (evt.which) ? evt.which : event.keyCode
+                                        if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                            return false;
+                                        return true;
+                                    }
 
 </script>

@@ -23,7 +23,6 @@ class ReportController extends AbstractApplicationController {
         $dbadapter              = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
         $table                  = new ReportTable($dbadapter);
         $getActivityTableColumn = $table->getActivityTableColumn();
-        //echo '<pre>';print_r($getActivityTableColumn);die;
         if ($request->isXmlHttpRequest()) {
             $requestData    = $request->getQuery()->toArray();
             $sortColumnsArr = array(0 => 'ACTIVITY_ID', 1 => 'USR_NAME', 2 => 'GL_MODULE_ID', 3 => 'GL_MODULE_NAME');
@@ -59,16 +58,11 @@ class ReportController extends AbstractApplicationController {
         if (count($activityData)) {
             $i = 0;
             foreach ($activityData as $ud) {
-                //$retArrData[$i][] = $ud['ACTIVITY_ID'];
-                //$retArrData[$i][] = $ud['UUID'];
-                $retArrData[$i][] = ucfirst($ud['USR_NAME']);
-                $retArrData[$i][] = $ud['USR_AGE'];
-                $retArrData[$i][] = $ud['USR_AVATAR'];
-                $retArrData[$i][] = $ud['USR_GENDER'];
-                $retArrData[$i][] = $ud['USR_LANGUAGE'];
+                $retArrData[$i][] = ucfirst($ud['FIRST_NAME']);
+                $retArrData[$i][] = $ud['USER_AGE'];                
+                $retArrData[$i][] = ($ud['GENDER_ID']=='M')?'Boy':'Girl';                
                 $retArrData[$i][] = $ud['GL_MODULE_ID'];
                 $retArrData[$i][] = $ud['GL_MODULE_NAME'];
-                //$retArrData[$i][] = $ud['GL_LEVEL_ID'];
                 $retArrData[$i][] = $ud['GL_LEVEL_NAME'];
                 $retArrData[$i][] = $ud['GL_LEVEL_KNOWLEDGE_DOMAIN'];
                 $retArrData[$i][] = $ud['GL_LEVEL_COGNITIVE_DOMAIN'];
@@ -78,7 +72,6 @@ class ReportController extends AbstractApplicationController {
                 $retArrData[$i][] = $ud['GL_QUESTION_COGNITIVE'];
                 $retArrData[$i][] = $ud['GL_QUESTION_ACTION_VERB'];
                 $retArrData[$i][] = $ud['LL_QUESTION_TYPE'];
-                //$retArrData[$i][] = $ud['LL_MAX_SCORE'];
                 $retArrData[$i][] = $ud['TR_USER_SCORE'];
                 $retArrData[$i][] = $ud['HOST_IP'];
                 $retArrData[$i][] = $ud['DEVICE_BROWSER_VERSION'];
@@ -114,6 +107,7 @@ class ReportController extends AbstractApplicationController {
         }
         // Module Attempt
         $moduleAttemptArr   = $table->getAllModuleAttemt();
+        
         $moduleAttemptArray = array();
         if (!empty($moduleAttemptArr)) {
             foreach ($moduleAttemptArr as $key => $modules) {

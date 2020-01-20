@@ -18,7 +18,7 @@ echo $this->doctype();
         <?php        
             $ck_editor_lang_key = 'en';
                 echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
-                        ->prependStylesheet($this->basePath('css/other.css?v='.filemtime(getcwd()."/public/css/other.css")))
+                        //->prependStylesheet($this->basePath('css/other.css?v='.filemtime(getcwd()."/public/css/other.css")))
                         ->prependStylesheet($this->basePath('css/full-container.css?v='.filemtime(getcwd()."/public/css/full-container.css")))
                         ->prependStylesheet($this->basePath('css/footer.css?v='.filemtime(getcwd()."/public/css/footer.css")))                        
                         ->prependStylesheet($this->basePath('css/components.css?v='.filemtime(getcwd()."/public/css/components.css")))
